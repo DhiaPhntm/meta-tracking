@@ -3,16 +3,16 @@ const FBLoginPrompt = () => {
 
     const login = () => {
         if(window.FB) {
-        window.FB.ui({
-            method: 'share',
-            href: window.location.href
-          }, function(response:any){
-            if (response && !response.error_message) {
-                alert('Posting completed.');
-              } else {
-                alert('Error while posting.');
-              }
-          });
+        window.FB.login(function(response:any) {
+          if (response.authResponse) {
+           console.log('Welcome!  Fetching your information.... ');
+           window.FB.api('/me', function(response:any) {
+             console.log('Good to see you, ' + response.name + '.');
+           });
+          } else {
+           console.log('User cancelled login or did not fully authorize.');
+          }
+      });
         }
     }
 

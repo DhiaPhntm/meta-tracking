@@ -6,9 +6,12 @@ import { useEffect, useState } from "react";
 const FBLoginStatus = () => {
 
     const [userid, setUserid] = useState();
+    const [response, setResponse] = useState("");
+
 
     const statusChangeCallback = (result: any) => {
         console.log(result);
+        setResponse(JSON.stringify(result))
         if(result.authResponse && result.authResponse.userid ) {
         setUserid(result.authResponse.userID)
         }
@@ -25,10 +28,14 @@ const FBLoginStatus = () => {
       }, [userid]);
 
 return (
-  
+  <div>
     <h1>
-     Welcome User {userid}
+     Welcome User [{userid}]
     </h1>
+    <p>
+       {response} 
+    </p>
+    </div>
    
   )
 }
