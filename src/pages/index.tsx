@@ -3,6 +3,7 @@ import Image from "next/image";
 import Head from "next/head";
 
 import styles from "../styles/Home.module.css";
+import FBLogout from "../FBLogout";
 import FBShare from "../components/FBShare";
 import FBLoginStatus from "../components/FBLoginStatus";
 import FBLoginPrompt from "../components/FBLoginPrompt";
@@ -77,6 +78,7 @@ export default function Home() {
         <div>
           <FBShare />
           <FBLoginPrompt />
+          <FBLogout />
         </div>
       </main>
     </>
