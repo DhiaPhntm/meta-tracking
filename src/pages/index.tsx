@@ -26,7 +26,7 @@ export default function Home() {
             __html: `
             window.fbAsyncInit = function() {
               FB.init({
-                appId      : '671368507898087',
+                appId      : '1495224634333441',
                 xfbml      : true,
                 version    : 'v15.0'
               });
@@ -67,7 +67,7 @@ export default function Home() {
         </div>
 
         <div className={styles.center}>
-          <a href="https://developers.facebook.com/apps/671368507898087/"><h1>Facebook developer test-app</h1></a>
+          <a href="https://developers.facebook.com/apps/1495224634333441/"><h1>Facebook developer test-app</h1></a>
           <FBLoginStatus />
         </div>
         <div>
