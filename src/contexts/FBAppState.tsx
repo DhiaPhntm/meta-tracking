@@ -35,12 +35,19 @@ const FBAppStateProvider = ({ children }: AppStateProps) => {
     if (result.authResponse && result.authResponse.userID) {
       setFBUserID(result.authResponse.userID);
       //get public profile
-      window.FB.api(result.authResponse.userID, function (response: any) {
-        if (response && !response.error) {
-          setFBProfile(response);
-          console.log(response);
+      window.FB.api(
+        result.authResponse.userID,
+        {
+          fields:
+            "name,age_range,birthday,gender,installed,location,friends{permissions.limit(10){permission,status}},languages",
+        },
+        function (response: any) {
+          if (response && !response.error) {
+            setFBProfile(response);
+            console.log(response);
+          }
         }
-      });
+      );
     }
   };
 
