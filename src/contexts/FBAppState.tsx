@@ -49,6 +49,7 @@ const FBAppStateProvider = ({ children }: AppStateProps) => {
       value={{
         isHydrated,
         FBStatus,
+        FBProfile,
       }}
     >
       {children}
