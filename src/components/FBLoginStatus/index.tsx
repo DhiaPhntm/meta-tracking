@@ -12,7 +12,7 @@ const FBLoginStatus = () => {
     const statusChangeCallback = (result: any) => {
         console.log(result);
         setResponse(JSON.stringify(result))
-        if(result.authResponse && result.authResponse.userid ) {
+        if(result.authResponse && result.authResponse.userID ) {
         setUserid(result.authResponse.userID)
         }
       }
@@ -32,7 +32,7 @@ return (
     <h1>
      Welcome User [{userid}]
     </h1>
-    <p>
+    <p style={{maxWidth: "50vw", overflowWrap: "break-word"}}>
        {response} 
     </p>
     </div>
