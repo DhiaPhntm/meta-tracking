@@ -1,13 +1,11 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '../styles/Home.module.css'
-import Script from 'next/script'
-import FBShare from '../components/FBShare'
-import FBLoginPrompt from '../components/FBLoginPrompt'
-import FBLoginStatus from '../components/FBLoginStatus'
+import Script from "next/script";
+import Image from "next/image";
+import Head from "next/head";
 
-const inter = Inter({ subsets: ['latin'] })
+import styles from "../styles/Home.module.css";
+import FBShare from "../components/FBShare";
+import FBLoginStatus from "../components/FBLoginStatus";
+import FBLoginPrompt from "../components/FBLoginPrompt";
 
 export default function Home() {
   return (
@@ -19,11 +17,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-       {/* https://developers.facebook.com/quickstarts/671368507898087/?platform=web */}
-      <Script id="fb"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
+      {/* https://developers.facebook.com/quickstarts/671368507898087/?platform=web */}
+      <Script
+        id="fb"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
             window.fbAsyncInit = function() {
               FB.init({
                 appId      : '1495224634333441',
@@ -38,8 +37,9 @@ export default function Home() {
                js = d.createElement(s); js.id = id;
                js.src = "https://connect.facebook.net/en_US/sdk.js";
                fjs.parentNode.insertBefore(js, fjs);
-             }(document, 'script', 'facebook-jssdk'));`}} />
-
+             }(document, 'script', 'facebook-jssdk'));`,
+        }}
+      />
 
       <main className={styles.main}>
         <div className={styles.description}>
@@ -53,7 +53,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              By{' '}
+              By{" "}
               <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
@@ -67,18 +67,18 @@ export default function Home() {
         </div>
 
         <div className={styles.center}>
-          <a href="https://developers.facebook.com/apps/1495224634333441/"><h1>Facebook developer test-app</h1></a>
+          <a href="https://developers.facebook.com/apps/1495224634333441/">
+            <h1>Facebook developer test-app</h1>
+          </a>
           <FBLoginStatus />
         </div>
-        <div>
-        </div>
+        <div></div>
 
         <div>
           <FBShare />
           <FBLoginPrompt />
         </div>
-
       </main>
     </>
-  )
+  );
 }

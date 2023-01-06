@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-prettier",
+    "stylelint-config-styled-components"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.{js,ts,jsx,tsx}"],
+      "customSyntax": "@stylelint/postcss-css-in-js"
+    }
+  ],
+  "rules": {
+    "function-no-unknown": null
+  }
+}
