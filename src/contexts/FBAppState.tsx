@@ -3,6 +3,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 type ContextProps = {
   isHydrated: boolean;
   FBStatus: any;
+  FBProfile: any;
 };
 
 interface AppStateProps {
@@ -15,6 +16,7 @@ const FBAppStateProvider = ({ children }: AppStateProps) => {
   const [isHydrated, setIsHydrated] = useState(false);
   const [FBStatus, setFBStatus] = useState();
   const [FBUserID, setFBUserID] = useState();
+  const [FBProfile, setFBProfile] = useState();
 
   useEffect(() => {
     setIsHydrated(true);
@@ -32,6 +34,13 @@ const FBAppStateProvider = ({ children }: AppStateProps) => {
     setFBStatus(result);
     if (result.authResponse && result.authResponse.userID) {
       setFBUserID(result.authResponse.userID);
+      //get public profile
+      window.FB.api(result.authResponse.userID, function (response: any) {
+        if (response && !response.error) {
+          setFBProfile(response);
+          console.log(response);
+        }
+      });
     }
   };
 
