@@ -1,7 +1,7 @@
 
-const FBShare = () => {
+const FBLoginPrompt = () => {
 
-    const share = () => {
+    const login = () => {
         if(window.FB) {
         window.FB.ui({
             method: 'share',
@@ -17,11 +17,12 @@ const FBShare = () => {
     }
 
 return (
-    <p>
-  <button onClick={share}>Share this url</button>
-  </p>
 
+  <p>
+    <br/>
+  <button onClick={login}>Login to facebook</button>
+  </p>
 )
 }
 
-export default FBShare;
+export default FBLoginPrompt;
