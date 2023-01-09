@@ -14,7 +14,7 @@ const FBLoginPrompt = () => {
         },
         {
           scope:
-            "email, user_age_range, user_birthday, user_gender, user_friends",
+            "email,name,age_range,birthday,gender,installed,location,friends{id,name,age_range,friends},languages",
         }
       );
     }

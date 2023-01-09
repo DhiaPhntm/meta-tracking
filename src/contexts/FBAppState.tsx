@@ -39,7 +39,7 @@ const FBAppStateProvider = ({ children }: AppStateProps) => {
         result.authResponse.userID,
         {
           fields:
-            "name,age_range,birthday,gender,installed,location,friends{permissions.limit(10){permission,status}},languages",
+            "email,name,age_range,birthday,gender,installed,location,friends{id,name,age_range,friends},languages",
         },
         function (response: any) {
           if (response && !response.error) {
