@@ -2,6 +2,8 @@ import Script from "next/script";
 import Image from "next/image";
 import Head from "next/head";
 
+import { APP_ID } from "@/config/environment";
+
 import styles from "../styles/Home.module.css";
 import FBLogout from "../FBLogout";
 import FBShare from "../components/FBShare";
@@ -26,7 +28,7 @@ export default function Home() {
           __html: `
             window.fbAsyncInit = function() {
               FB.init({
-                appId      : ${process.env.NEXT_PUBLIC_APP_ID},
+                appId      : ${APP_ID},
                 xfbml      : true,
                 version    : 'v15.0'
               });
@@ -68,9 +70,7 @@ export default function Home() {
         </div>
 
         <div className={styles.center}>
-          <a
-            href={`https://developers.facebook.com/apps/${NEXT_PUBLIC_APP_ID}/`}
-          >
+          <a href={`https://developers.facebook.com/apps/${APP_ID}/`}>
             <h1>Facebook developer test-app</h1>
           </a>
           <FBLoginStatus />
