@@ -29,7 +29,7 @@ const FBLoginPrompt = ({ scope, label }: Props) => {
           }
         },
         {
-          scope: { scope },
+          scope: scope,
         }
       );
     }
