@@ -25,43 +25,44 @@ const FBAppStateProvider = ({ children }: AppStateProps) => {
     setIsHydrated(true);
     setTimeout(() => {
       if (window.FB) {
-        console.log("getLoginStatus");
-        window.FB.getLoginStatus(function (response: any) {
-          statusChangeCallback(response);
-        });
-      }
-    }, 100);
-  }, [FBProfile, FBUserID]);
-
-  const statusChangeCallback = (result: any) => {
-    console.log("statusChangeCallback: " + result);
-    setFBStatus(result);
-    if (result.authResponse && result.authResponse.userID) {
-      setFBUserID(result.authResponse.userID);
-      //get public profile
-      window.FB.api(
-        result.authResponse.userID,
-        {
-          fields:
-            "email,name,age_range,birthday,gender,installed,location,friends{id,name,age_range,friends},languages",
-        },
-        function (response: any) {
-          if (response && !response.error) {
-            setFBProfile(response);
-            console.log(response);
+        window.FB.Event.subscribe(
+          "auth.statusChange",
+          function (response: any) {
+            console.log("statusChangeCallback: " + response);
+            setFBStatus(response);
+            if (response.authResponse && response.authResponse.userID) {
+              setFBUserID(response.authResponse.userID);
+              //get public profile
+              window.FB.api(
+                response.authResponse.userID,
+                {
+                  fields:
+                    "email,name,age_range,birthday,gender,installed,location,friends{id,name,age_range,friends},languages",
+                },
+                function (response: any) {
+                  if (response && !response.error) {
+                    setFBProfile(response);
+                    console.log(response);
+                  }
+                }
+              );
+              //get permissions list
+              window.FB.api(
+                `/${FBUserID}/permissions`,
+                function (response: any) {
+                  if (response && !response.error) {
+                    setFBPermissions(response);
+                  } else {
+                    setFBPermissions(undefined);
+                  }
+                }
+              );
+            }
           }
-        }
-      );
-      //get permissions list
-      window.FB.api(`/${FBUserID}/permissions`, function (response: any) {
-        if (response && !response.error) {
-          setFBPermissions(response);
-        } else {
-          setFBPermissions(undefined);
-        }
-      });
-    }
-  };
+        );
+      }
+    }, 0);
+  }, [FBUserID]);
 
   return (
     <FBAppStateContext.Provider
