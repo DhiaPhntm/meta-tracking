@@ -24,13 +24,14 @@ const FBAppStateProvider = ({ children }: AppStateProps) => {
   useEffect(() => {
     setIsHydrated(true);
     setTimeout(() => {
-      if (window.FB && !FBUserID) {
+      if (window.FB) {
+        console.log("getLoginStatus");
         window.FB.getLoginStatus(function (response: any) {
           statusChangeCallback(response);
         });
       }
     }, 100);
-  }, [FBProfile]);
+  }, [FBProfile, FBUserID]);
 
   const statusChangeCallback = (result: any) => {
     console.log("statusChangeCallback: " + result);
