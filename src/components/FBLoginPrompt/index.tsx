@@ -11,7 +11,8 @@ const FBLoginPrompt = ({ scope, label }: Props) => {
     if (window.FB) {
       window.FB.login(
         function (response: any) {
-          if (response.authResponse) {
+          setFBProfile(response);
+          if (response.authResponse && response.authResponse.userID) {
             console.log("Welcome!  Fetching your information.... ");
             window.FB.api(
               response.authResponse.userID,
@@ -26,6 +27,7 @@ const FBLoginPrompt = ({ scope, label }: Props) => {
             );
           } else {
             console.log("User cancelled login or did not fully authorize.");
+            setFBProfile(response);
           }
         },
         {
