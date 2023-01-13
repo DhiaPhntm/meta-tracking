@@ -1,8 +1,12 @@
+import { useFBAppState } from "@/contexts/FBAppState";
+
 const FBLogout = () => {
+  const { setFBProfile } = useFBAppState();
   const logout = () => {
     if (window.FB) {
       window.FB.logout(function (response: any) {
         console.log(response);
+        setFBProfile(response);
       });
     }
   };

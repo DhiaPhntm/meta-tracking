@@ -1,20 +1,35 @@
-const FBLoginPrompt = () => {
+import { useFBAppState } from "@/contexts/FBAppState";
+
+interface Props {
+  scope: string;
+  label: string;
+}
+
+const FBLoginPrompt = ({ scope, label }: Props) => {
+  const { setFBProfile } = useFBAppState();
   const login = () => {
     if (window.FB) {
       window.FB.login(
         function (response: any) {
           if (response.authResponse) {
             console.log("Welcome!  Fetching your information.... ");
-            window.FB.api("/me", function (response: any) {
-              console.log("Good to see you, " + response.name + ".");
-            });
+            window.FB.api(
+              response.authResponse.userID,
+              {
+                fields:
+                  "email,name,age_range,birthday,gender,installed,location,friends{id,name,age_range,friends},languages",
+              },
+              function (response: any) {
+                console.log("Good to see you, " + response.name + ".");
+                setFBProfile(response);
+              }
+            );
           } else {
             console.log("User cancelled login or did not fully authorize.");
           }
         },
         {
-          scope:
-            "email,user_birthday, user_age_range,user_friends, user_gender, user_location",
+          scope: { scope },
         }
       );
     }
@@ -23,7 +38,7 @@ const FBLoginPrompt = () => {
   return (
     <p>
       <br />
-      <button onClick={login}>Login to facebook</button>
+      <button onClick={login}>{label}</button>
     </p>
   );
 };

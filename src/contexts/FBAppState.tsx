@@ -4,6 +4,8 @@ type ContextProps = {
   isHydrated: boolean;
   FBStatus: any;
   FBProfile: any;
+  FBPermissions: any;
+  setFBProfile: any;
 };
 
 interface AppStateProps {
@@ -17,6 +19,7 @@ const FBAppStateProvider = ({ children }: AppStateProps) => {
   const [FBStatus, setFBStatus] = useState();
   const [FBUserID, setFBUserID] = useState();
   const [FBProfile, setFBProfile] = useState();
+  const [FBPermissions, setFBPermissions] = useState();
 
   useEffect(() => {
     setIsHydrated(true);
@@ -48,6 +51,14 @@ const FBAppStateProvider = ({ children }: AppStateProps) => {
           }
         }
       );
+      //get permissions list
+      window.FB.api(`/${FBUserID}/permissions`, function (response: any) {
+        if (response && !response.error) {
+          setFBPermissions(response);
+        } else {
+          setFBPermissions(undefined);
+        }
+      });
     }
   };
 
@@ -57,6 +68,8 @@ const FBAppStateProvider = ({ children }: AppStateProps) => {
         isHydrated,
         FBStatus,
         FBProfile,
+        FBPermissions,
+        setFBProfile,
       }}
     >
       {children}

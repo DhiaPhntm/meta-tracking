@@ -79,7 +79,13 @@ export default function Home() {
 
         <div>
           <FBShare />
-          <FBLoginPrompt />
+          <FBLoginPrompt scope="" label="Basic Login" />
+          <FBLoginPrompt scope="email" label="Email Login" />
+          <FBLoginPrompt scope="user_friends" label="Friends Login" />
+          <FBLoginPrompt
+            scope="email,user_birthday, user_age_range,user_friends, user_gender, user_location"
+            label="Full Login"
+          />
           <FBLogout />
         </div>
       </main>
