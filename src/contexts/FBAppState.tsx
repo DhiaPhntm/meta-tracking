@@ -30,10 +30,10 @@ const FBAppStateProvider = ({ children }: AppStateProps) => {
         });
       }
     }, 100);
-  }, [FBUserID]);
+  }, [FBProfile]);
 
   const statusChangeCallback = (result: any) => {
-    console.log(result);
+    console.log("statusChangeCallback: " + result);
     setFBStatus(result);
     if (result.authResponse && result.authResponse.userID) {
       setFBUserID(result.authResponse.userID);
