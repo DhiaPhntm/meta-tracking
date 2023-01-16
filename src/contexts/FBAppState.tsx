@@ -46,10 +46,12 @@ const FBAppStateProvider = ({ children }: AppStateProps) => {
                   }
                 }
               );
+              console.log("fetch permissions");
               //get permissions list
               window.FB.api(
                 `/${FBUserID}/permissions`,
                 function (response: any) {
+                  console.log(response);
                   if (response && !response.error) {
                     setFBPermissions(response);
                   } else {
