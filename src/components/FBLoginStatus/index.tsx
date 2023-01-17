@@ -7,13 +7,13 @@ const FBLoginStatus = () => {
     <div>
       <h1>Welcome User [{FBStatus?.authResponse?.userID}]</h1>
       <p style={{ maxWidth: "50vw", overflowWrap: "break-word" }}>
-        {JSON.stringify(FBStatus)}
+        <b>Status:</b> {JSON.stringify(FBStatus)}
       </p>
       <p style={{ maxWidth: "50vw", overflowWrap: "break-word" }}>
-        {JSON.stringify(FBProfile)}
+        <b>Profile:</b> {JSON.stringify(FBProfile)}
       </p>
       <p style={{ maxWidth: "50vw", overflowWrap: "break-word" }}>
-        {JSON.stringify(FBPermissions)}
+        <b>Granted Permissions:</b> {JSON.stringify(FBPermissions)}
       </p>
     </div>
   );

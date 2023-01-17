@@ -103,3 +103,15 @@ a {
     color-scheme: dark;
   }
 }
+
+p {
+  margin: 20px 0;
+  height: 40px;
+  display: flex;
+}
+
+.spinner {
+  margin-left: 10px;
+  width: 40px;
+  height: 40px;
+}

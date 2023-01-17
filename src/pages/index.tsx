@@ -1,16 +1,18 @@
-import Script from "next/script";
 import Image from "next/image";
 import Head from "next/head";
 
+import { useFBAppState } from "@/contexts/FBAppState";
 import { APP_ID } from "@/config/environment";
+import FBRevokePermissions from "@/components/FBRevokePermissions";
 
 import styles from "../styles/Home.module.css";
-import FBLogout from "../FBLogout";
 import FBShare from "../components/FBShare";
+import FBLogout from "../components/FBLogout";
 import FBLoginStatus from "../components/FBLoginStatus";
 import FBLoginPrompt from "../components/FBLoginPrompt";
 
 export default function Home() {
+  const { FBStatus } = useFBAppState();
   return (
     <>
       <Head>
@@ -19,30 +21,6 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      {/* https://developers.facebook.com/quickstarts/671368507898087/?platform=web */}
-      <Script
-        id="fb"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.fbAsyncInit = function() {
-              FB.init({
-                appId      : ${APP_ID},
-                xfbml      : true,
-                version    : 'v15.0'
-              });
-              FB.AppEvents.logPageView();
-            };
-            (function(d, s, id){
-               var js, fjs = d.getElementsByTagName(s)[0];
-               if (d.getElementById(id)) {return;}
-               js = d.createElement(s); js.id = id;
-               js.src = "https://connect.facebook.net/en_US/sdk.js";
-               fjs.parentNode.insertBefore(js, fjs);
-             }(document, 'script', 'facebook-jssdk'));`,
-        }}
-      />
 
       <main className={styles.main}>
         <div className={styles.description}>
@@ -86,7 +64,10 @@ export default function Home() {
             scope="email,user_birthday, user_age_range,user_friends, user_gender, user_location"
             label="Full Login"
           />
-          <FBLogout />
+          <FBRevokePermissions />
+          {FBStatus && FBStatus.status && FBStatus.status === "connected" && (
+            <FBLogout />
+          )}
         </div>
       </main>
     </>
