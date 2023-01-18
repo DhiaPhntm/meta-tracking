@@ -71,6 +71,7 @@ const FBAppStateProvider = ({ children }: AppStateProps) => {
 
       const statusHandler = (response: any) => {
         console.log("StatusChange: " + JSON.stringify(response));
+        console.log(FBUserID);
         setFBStatus(response);
         if (response.status === "unknown") {
           setFBProfile(undefined);
