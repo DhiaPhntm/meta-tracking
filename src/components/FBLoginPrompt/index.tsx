@@ -31,10 +31,21 @@ const FBLoginPrompt = ({ scope, label }: Props) => {
   };
 
   return (
-    <p>
-      <button onClick={login}>{label}</button>
-      {isRequesting && <Spinner className="spinner" />}
-    </p>
+    <>
+      <p>
+        <button onClick={login}>{label}</button>
+        {isRequesting && <Spinner className="spinner" />}
+      </p>
+      <div
+        class="fb-login-button"
+        data-width=""
+        data-size="large"
+        data-button-type="continue_with"
+        data-layout="default"
+        data-auto-logout-link="true"
+        data-use-continue-as="true"
+      ></div>
+    </>
   );
 };
 
