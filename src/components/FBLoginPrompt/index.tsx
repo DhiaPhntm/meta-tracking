@@ -37,7 +37,7 @@ const FBLoginPrompt = ({ scope, label }: Props) => {
         {isRequesting && <Spinner className="spinner" />}
       </p>
       <div
-        class="fb-login-button"
+        className="fb-login-button"
         data-width=""
         data-size="large"
         data-button-type="continue_with"
