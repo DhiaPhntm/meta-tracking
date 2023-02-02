@@ -1,7 +1,8 @@
 import Head from "next/head";
+import { signIn } from "next-auth/react";
 
 import { useFBAppState } from "@/contexts/FBAppState";
-import { APP_ID } from "@/config/environment";
+import { FACEBOOK_APP_ID } from "@/config/environment";
 import FBRevokePermissions from "@/components/FBRevokePermissions";
 
 import styles from "../styles/Home.module.css";
@@ -23,7 +24,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.center}>
-          <a href={`https://developers.facebook.com/apps/${APP_ID}/`}>
+          <a href={`https://developers.facebook.com/apps/${FACEBOOK_APP_ID}/`}>
             Facebook developer test-app link
           </a>
           <FBLoginStatus />
@@ -41,7 +42,26 @@ export default function Home() {
           ></div>
           <br />
           <br />
+
           <FBShare />
+
+          <button
+            onClick={() =>
+              signIn(
+                "facebook",
+                { callbackUrl: "https://localhost:3001/loggedin" },
+                {
+                  scope:
+                    "email,user_birthday, user_age_range,user_friends, user_gender, user_location",
+                }
+              )
+            }
+          >
+            Sign in with NextAuth Facebook
+          </button>
+          <br />
+          <br />
+
           <FBLoginPrompt scope="" label="Basic Login" />
           <FBLoginPrompt scope="email" label="Email Login" />
           <FBLoginPrompt
