@@ -1,0 +1,22 @@
+:root {
+    --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --ease-in-out: cubic-bezier(0.9, 0.0, 0.1, 1.0);
+    /*
+    * Use ease-zendesk on all things
+    */
+    --ease-zendesk: cubic-bezier(0.84, 0.00, 0.16, 1.00);
+    --speed-flash: 0.05s;
+    --speed-rapid: 0.1s;
+    --speed-very-fast: 0.15s;
+    --speed-fast: 0.25s;
+    --speed-regular: 0.4s;
+    --speed-slow: 0.6s;
+    --speed-very-slow: 0.8s;
+    /*
+    * Use speed-zendesk on all things except buttons where using --speed-fast
+    */
+    --speed-zendesk: 1.2s;
+    --speed-sloth: 1s;
+    --speed-glacial: 1.5s;
+    --speed-iceage: 2.6s;
+}

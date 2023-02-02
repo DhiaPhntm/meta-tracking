@@ -1,0 +1,39 @@
+button.baseButton {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+button.baseButton:disabled {
+    cursor: initial;
+    opacity: 0.5;
+}
+
+button.baseButton::before {
+    position: absolute;
+    content: "";
+    background: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    bottom: 0;
+    box-shadow: 2px 2px 0px var(--color-kale);
+    border-radius: 5px;
+    will-change: none;
+    transition: box-shadow var(--speed-fast) var(--ease-zendesk);
+}
+
+button.baseButton:hover,
+button.baseButton.pressed {
+    transform: translate(2px, 2px);
+}
+
+button.baseButton:hover::before, 
+button.baseButton:focus-visible::before,
+button.baseButton.pressed::before {
+    will-change: box-shadow;
+    box-shadow: 0px 0px 0px var(--color-kale);
+}

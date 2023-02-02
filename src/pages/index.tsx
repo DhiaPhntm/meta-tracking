@@ -24,13 +24,23 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.center}>
           <a href={`https://developers.facebook.com/apps/${APP_ID}/`}>
-            <h1>Facebook developer test-app</h1>
+            Facebook developer test-app link
           </a>
           <FBLoginStatus />
         </div>
         <div></div>
 
-        <div>
+        <div className={styles.center}>
+          <div
+            className="fb-like"
+            data-href="https://meta-tracking.vercel.app"
+            data-width="500"
+            data-layout="button_count"
+            data-action="like"
+            data-size="large"
+          ></div>
+          <br />
+          <br />
           <FBShare />
           <FBLoginPrompt scope="" label="Basic Login" />
           <FBLoginPrompt scope="email" label="Email Login" />

@@ -1,0 +1,84 @@
+html {
+    /* Set default app box-sizing */
+    box-sizing: border-box;
+    /* Smooth fonts */
+    -webkit-font-smoothing: antialiased;
+    background: var(--color-tofu);
+    scroll-behavior: smooth;
+}
+  
+body {
+    margin: 0;
+
+    font-family: var(--shsn-medium);
+    font-weight: 400;
+    font-style: normal;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+
+
+.type-h1 {
+    font-family: var(--shsn-semi-bold);
+    font-weight: 600;
+    font-style: normal;
+
+    font-size: 40px;
+    line-height: 46px;
+
+    @media (min-width: var(--bp-s)) {
+        font-size: 56px;
+        line-height: 62px;
+    }
+}
+
+.type-h2 {
+    font-family: var(--shsn-semi-bold);
+    font-weight: 600;
+    font-style: normal;
+
+    font-size: 34px;
+    line-height: 44px;
+
+    @media (min-width: var(--bp-s)) {
+        font-size: 48px;
+        line-height: 52px;
+    }
+}
+
+.type-h3 {
+    font-family: var(--shsn-semi-bold);
+    font-weight: 600;
+    font-style: normal;
+
+    font-size: 34px;
+    line-height: 44px;
+
+    @media (min-width: var(--bp-s)) {
+        font-size: 48px;
+        line-height: 52px;
+    }
+}
+
+#svg-clip {
+    display: none;
+}
+
+#svg-clip-mobile {
+    display: inline;
+}
+
+@media (min-width: 786px) {
+    #svg-clip {
+        display: inline;
+    } 
+    #svg-clip-mobile {
+        display: none;
+    }
+}
+

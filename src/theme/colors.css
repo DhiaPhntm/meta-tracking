@@ -1,0 +1,47 @@
+:root, *::after, *::before {
+    /* Theme colors */
+
+    --color-white: #ffffff;
+    /* For typography, headers, subheads, backgrounds */
+    --color-kale: #03363D;  
+    /* Large fills and backgrounds */
+    --color-kale-pale: #17494D;
+    --color-nessie: #BDD9D7;
+    --color-oat-milk-transparent: #ECE0CE4D;
+    --color-oat-milk: #ECE0CE;
+    --color-karl: #F3F0EE;
+    --color-tofu: #F8F9F9;
+    --color-cement: #8E8E8E;
+    --color-cement-light: #ECEEED;
+    --color-subdued-cement: #8E8E8E66;
+
+    /* Typography colors */
+
+    /* Body copy */
+    --color-subdued-kale: #3D5154;
+    /* Longform copy, headers, dividers */
+    --color-dark-gray: #808080;
+    /* Longform copy, headers, dividers */
+    --color-subtle-gray: #FAFAFA;
+    /* Links, hover states */
+    --color-bubbles: #30AABC;
+
+    /* Secondary palette */
+    --color-baby-yoda: #E3F0D2;
+    --color-peppermint-patty: #00A656;
+    --color-yoda: #587052;
+    --color-dorothy: #D6EEF1;
+    --color-popeye: #3D8DAE;
+    --color-ditto: #EAD7E9;
+    --color-daphne: #CE9FB7;
+    --color-jane-jetson: #7D3D54;
+    --color-olive-oyl: #F6C8BE;
+    --color-wilma: #FF6224;
+    --color-clifford: #AF2C2C;
+    --color-ernie: #FED6A8;
+    --color-hobbes: #F79A3E;
+    --color-scully: #BF5000;
+    --color-bert: #F9E9B1;
+    --color-charlie: #EFC93D;
+    --color-luke: #C38F00;
+}

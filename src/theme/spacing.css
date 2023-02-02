@@ -1,0 +1,18 @@
+:root {
+    --space-xxs: 4px;
+    --space-xs: 8px;
+    --space-s: 16px;
+    --space-m: 24px;
+    --space-l: 32px;
+    --space-xl: 48px;
+    --space-xxl: 56px;
+    --space-xxxl: 64px;
+    --space-xxxxl: 72px;
+    
+    --space-divider-xs: 48px;
+    --space-divider-s: 64px;
+    --space-divider-m: 96px;
+    --space-divider-l: 128px;
+    --space-divider-xl: 152px;
+    --space-divider-xxl: 180px;
+}
