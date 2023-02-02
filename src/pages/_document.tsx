@@ -1,7 +1,7 @@
 import Script from "next/script";
 import { Html, Head, Main, NextScript } from "next/document";
 
-import { APP_ID } from "@/config/environment";
+import { FACEBOOK_APP_ID } from "@/config/environment";
 
 export default function Document() {
   return (
@@ -15,7 +15,7 @@ export default function Document() {
             __html: `
             window.fbAsyncInit = function() {
               FB.init({
-                appId      : ${APP_ID},
+                appId      : ${FACEBOOK_APP_ID},
                 xfbml      : true,
                 version    : 'v15.0',
                 status: true,
