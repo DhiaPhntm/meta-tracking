@@ -49,10 +49,9 @@ export default function Home() {
             onClick={() =>
               signIn(
                 "facebook",
-                { callbackUrl: "https://localhost:3001/loggedin" },
+                { callbackUrl: "https://meta-tracking.vercel.app" },
                 {
-                  scope:
-                    "email,user_birthday, user_age_range,user_friends, user_gender, user_location",
+                  scope: "email",
                 }
               )
             }
