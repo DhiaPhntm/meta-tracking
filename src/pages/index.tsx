@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Head from "next/head";
 import { signIn } from "next-auth/react";
 
@@ -45,22 +46,6 @@ export default function Home() {
 
           <FBShare />
 
-          <button
-            onClick={() =>
-              signIn(
-                "facebook",
-                { callbackUrl: "https://meta-tracking.vercel.app" },
-                {
-                  scope: "email",
-                }
-              )
-            }
-          >
-            Sign in with NextAuth Facebook
-          </button>
-          <br />
-          <br />
-
           <FBLoginPrompt scope="" label="Basic Login" />
           <FBLoginPrompt scope="email" label="Email Login" />
           <FBLoginPrompt
@@ -76,6 +61,7 @@ export default function Home() {
             <FBLogout />
           )}
         </div>
+        <Link href="/oauth">Oauth page</Link>
       </main>
     </>
   );
