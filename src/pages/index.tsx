@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Head from "next/head";
-import { signIn } from "next-auth/react";
 
 import { useFBAppState } from "@/contexts/FBAppState";
 import { FACEBOOK_APP_ID } from "@/config/environment";
