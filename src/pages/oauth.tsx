@@ -20,7 +20,7 @@ export default function Home() {
             onClick={() =>
               signIn(
                 "facebook",
-                { callbackUrl: "https://localhost:3001/oauth" },
+                { callbackUrl: "https://meta-tracking.vercel.app/oauth" },
                 {
                   scope: "email",
                 }
