@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 import Link from "next/link";
-import { signIn, useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 import styles from "../styles/Home.module.css";
 
@@ -16,19 +16,29 @@ export default function Home() {
     <>
       <main className={styles.main}>
         <div className={styles.center}>
-          <button
-            onClick={() =>
-              signIn(
-                "facebook",
-                { callbackUrl: "https://meta-tracking.vercel.app/oauth" },
-                {
-                  scope: "email",
-                }
-              )
-            }
-          >
-            Sign in with NextAuth Facebook
-          </button>
+          {!session?.user?.email ? (
+            <button
+              onClick={() =>
+                signIn(
+                  "facebook",
+                  { callbackUrl: "https://localhost:3001/oauth" },
+                  {
+                    scope: "email",
+                  }
+                )
+              }
+            >
+              Sign in with NextAuth Facebook
+            </button>
+          ) : (
+            <button
+              onClick={() =>
+                signOut({ callbackUrl: "https://localhost:3001/oauth" })
+              }
+            >
+              Sign out from NextAuth Facebook
+            </button>
+          )}
           <br />
           {session?.user?.email}
           <br />
