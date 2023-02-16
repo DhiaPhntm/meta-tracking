@@ -24,8 +24,8 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.center}>
-          <a href={`https://developers.facebook.com/apps/${FACEBOOK_APP_ID}/`}>
-            Facebook developer test-app link
+          <a href={`https://www.facebook.com/profile.php?id=100088228576719`}>
+            Facebook test page
           </a>
           <FBLoginStatus />
         </div>
