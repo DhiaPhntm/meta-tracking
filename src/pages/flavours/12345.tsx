@@ -17,7 +17,7 @@ export default function Home() {
         <meta property="og:title" content="Dhia's Flavour results" />
         <meta
           property="og:description"
-          content="Dhia's flavour tastes are 30% Irish, 30% Dutch"
+          content="Dhia's flavour tastes are 30% Irish, 30% Dutch. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in ligula semper, luctus sapien ac, ornare mi. Sed fermentum in justo nec aliquam. Pellentesque condimentum dictum odio, sed bibendum justo elementum in. Suspendisse sit amet auctor diam. Praesent a semper nisi, non hendrerit leo. Quisque ornare justo blandit nunc vulputate, ac ornare risus porttitor. Fusce finibus lorem ut euismod pellentesque. Morbi efficitur, leo et consequat pulvinar, arcu odio pellentesque sapien, ac ornare nunc arcu ultrices felis. Quisque massa tortor, egestas at dapibus at, dictum vel nisi. Proin semper volutpat justo non posuere."
         />
         <meta
           property="og:image"
