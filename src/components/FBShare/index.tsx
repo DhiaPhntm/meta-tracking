@@ -6,7 +6,7 @@ const FBShare = () => {
       window.FB.ui(
         {
           method: "share",
-          href: window.location.href,
+          href: "https://meta-tracking-vercel.app/flavours/12345",
         },
         function (response: any) {
           if (response && !response.error_message) {
@@ -23,7 +23,7 @@ const FBShare = () => {
     <>
       <BaseButton
         className="fb-share-button"
-        data-href="https://meta-tracking.vercel.app"
+        data-href="https://meta-tracking-vercel.app/flavours/12345"
         data-layout="button_count"
         data-size="large"
         onClick={share}

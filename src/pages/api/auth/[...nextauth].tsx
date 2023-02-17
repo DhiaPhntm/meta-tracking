@@ -1,3 +1,4 @@
+import InstagramProvider from "next-auth/providers/instagram";
 import FacebookProvider from "next-auth/providers/facebook";
 import NextAuth from "next-auth";
 
@@ -8,6 +9,10 @@ export const authOptions = {
     FacebookProvider({
       clientId: FACEBOOK_APP_ID,
       clientSecret: FACEBOOK_APP_SECRET,
+    }),
+    InstagramProvider({
+      clientId: process.env.INSTAGRAM_CLIENT_ID,
+      clientSecret: process.env.INSTAGRAM_CLIENT_SECRET,
     }),
   ],
 };

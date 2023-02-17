@@ -2,7 +2,6 @@ import Link from "next/link";
 import Head from "next/head";
 
 import { useFBAppState } from "@/contexts/FBAppState";
-import { FACEBOOK_APP_ID } from "@/config/environment";
 import FBRevokePermissions from "@/components/FBRevokePermissions";
 
 import styles from "../styles/Home.module.css";
