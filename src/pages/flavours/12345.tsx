@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Head from "next/head";
 
+import { FACEBOOK_APP_ID } from "@/config/environment";
+
 import styles from "../../styles/Home.module.css";
 
 export default function Home() {
@@ -9,7 +11,7 @@ export default function Home() {
       <Head>
         <meta
           property="og:url"
-          content="https://localhost:3001/flavours/12345"
+          content="https://meta-tracking.vercel.app/flavours/12345"
         />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Dhia's Flavour results" />
@@ -17,7 +19,15 @@ export default function Home() {
           property="og:description"
           content="Dhia's flavour tastes are 30% Irish, 30% Dutch"
         />
-        <meta property="og:image" content="https://localhost:3001/fruit.png" />
+        <meta
+          property="og:image"
+          content="https://meta-tracking.vercel.app/fruit.png"
+        />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="840" />
+        <meta property="og:image:height" content="889" />
+
+        <meta property="fb:app_id" content={FACEBOOK_APP_ID} />
       </Head>
 
       <main className={styles.main}>
